@@ -105,9 +105,15 @@ indexFile.withWriter('UTF-8') { writer ->
 }
 def epubFile = new File(dest, "progit_${args[0]}.epub")
 println "EpubFile" + epubFile
+// for more options see:
+// http://calibre-ebook.com/user_manual/cli/ebook-convert-3.html#html-input-to-epub-output
 def cmd = ["""ebook-convert""", indexFile.getPath(), epubFile.getPath(), 
   """--cover""", """title.png""", 
   """--authors""", "Scott Chacon", 
+  "--isbn", "1430218339",
+  "--publisher", "Apress",
+  "--pubdate", "Aug 2009",
+  "--rating", "4",
   "--comments", "licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license", 
   "--no-chapters-in-toc",
   "--toc-threshold", "15",
