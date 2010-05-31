@@ -118,6 +118,7 @@ def cmd = ["""ebook-convert""", indexFile.getPath(), epubFile.getPath(),
   "--no-chapters-in-toc",
   "--toc-threshold", "15",
   "--level1-toc", "//h:h1", 
+  "--extra-css", 'pre { white-space: pre-wrap; }',
 ]
 def proc = cmd.execute();
 proc.waitFor();
